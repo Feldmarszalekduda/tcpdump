@@ -4,13 +4,15 @@ pipeline {
     stage('Build alpine') {
       agent {
         docker {
-          image 'alpine'
+          image 'ubuntu'
         }
 
       }
       steps {
-        sh 'pwd; ls -l;'
+        sh 'echo ${ENV}'
+        sh 'apt install gcc make libpcap-dev'
         sh './configure'
+        sh 'make'
       }
     }
   }
