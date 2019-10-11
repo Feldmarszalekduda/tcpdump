@@ -10,7 +10,7 @@ pipeline {
 
       }
       steps {
-        sh 'echo ${ENV}'
+        sh 'env'
         sh 'apt update'
         sh 'apt install -y gcc make libpcap-dev'
         sh './configure'
